@@ -1,8 +1,10 @@
-import puppeteer from 'puppeteer';
+const puppeteer = require('puppeteer');
 
 export default async function handler(req, res) {
     try {
-        const browser = await puppeteer.launch();
+        const browser = await puppeteer.launch({
+            headless: 'new',
+        });
         const page = await browser.newPage();
         await page.goto('https://www.google.com');
 
