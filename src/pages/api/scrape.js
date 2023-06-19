@@ -7,6 +7,8 @@ export default async function handler(req, res) {
         });
         const page = await browser.newPage();
         await page.goto('https://www.google.com');
+        const pageSource = await page.content();
+        console.log(pageSource);
 
         // Perform scraping actions with Puppeteer as needed
         const scrapedData = await page.evaluate(() => {
